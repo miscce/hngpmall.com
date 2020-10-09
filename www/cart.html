@@ -176,8 +176,20 @@
     <script src="/lib/cookie.js"></script>
     <script>
         $(document).ready(function(){
-            $(function(){
-                $('.topBox').load('./module/public.html .top')
+            $(function()
+              {$('.topBox').load('./module/public.html .top',function(){
+              let userMsg = localStorage.getItem("userMsg");
+              userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
+              let str = "";
+              if(userMsg.user != "" || userMsg.pass != ""){
+                str = `<span>您好 &nbsp;<a href="list.html">${userMsg.user}</a></span>
+                <span>，欢迎来到&nbsp;<a alt="首页" title="首页" href="">网航商城</a></span>
+                <span>[<a href="/home/member/logout.html">退出</a>]</span>`
+                
+                $('.txt-info')[0].innerHTML = str;
+
+              }
+            });
             })
 
             $('.footerBox').load('./module/public.html .footer-new')
@@ -246,21 +258,23 @@
                     var tar = e.target || e.srcElement;       
                     that.update(tar);
 
-                    // if($(tar).val()>that.val){
-                      // that.itemPrice(tar,1)
-                      // that.priceAll = parseInt($(tar).parents('.item-form').find('.buy-num').val() * $(tar).parents('.item-form').find('#_51_subtotal').text())
-                      // var arr = 0;
-                      // console.log(arr = that.priceAll)
-                    // }else{
-                      // that.itemPrice(tar,-1)
-                    // }
-                    // that.prices.innerHTML = that.priceAll
+                    if(tar.className === 'text buy-num'){
+                    //   if($(tar).val()>that.val){
+                    //   // that.priceAll = parseInt($(tar).parents('.item-form').find('.buy-num').val() * $(tar).parents('.item-form').find('#_51_subtotal').text())
+                    //     console.log(that.prices.innerHTML = that.priceAll = parseInt($(tar).parents('.item-form').find('.buy-num').val() * $(tar).parents('.item-form').find('#_51_subtotal').text()))
+                    //     console.log(that.priceAll)
+                    //   }else{
+                    //     console.log(2)
+                    //   }
+                    console.log($(tar).val())
+                    console.log($('.item-form').find('.buy-num'))
+                    }
+
                 })
 
                 this.itemList.addEventListener('click',function(eve){
                     var e = eve || window.event;
                     var tar = e.target || e.srcElement;
-                    that.val = $('.buy-num').val() //当前输入框val
                     that.remove(tar);
 
                     if(tar.className === "ui-checkbox"){
