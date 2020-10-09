@@ -29,12 +29,16 @@
         window.onload = function(){
             var odiv = document.querySelectorAll('.cont')[0];
 
-            let userMsg = localStorage.getItem("userMsg");
-            userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
-            if(userMsg.user === "" || userMsg.pass === ""){
+            let loginStatus = sessionStorage.getItem("loginStatus");
+            loginStatus = loginStatus ? JSON.parse(loginStatus) : {user:"",pass:""};
+            if(loginStatus.state != 1){
                 alert("请先登录")
                 location.href = "login.html"
             }
+            // if(loginStatus.user === "" || loginStatus.pass === ""){
+            //     alert("请先登录")
+            //     location.href = "login.html"
+            // }
 
             new Shopping();
             // ajax({
@@ -100,7 +104,9 @@
                 var str = "";
                 for(var i=0;i<this.res.data.length;i++){
                     str += `<div class="box">
-                            <img src="${this.res.data[i].itempic}"></img>
+                        <a href="/detail.html?id=${this.res.data[i].product_id}" target="_blank">
+                            <img src="${this.res.data[i].itempic}"></img></a>
+                            
                             <p>${this.res.data[i].itemtitle}</p>
                             <p>
                             原价：<span class="price">${this.res.data[i].itemprice}</span>

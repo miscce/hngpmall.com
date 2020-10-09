@@ -262,6 +262,37 @@
         }
     }
 
+    // ouser.onblur  = function(){
+    //     ajax({
+    //         url:"http://127.0.0.1:3000/api",
+    //         data:{
+    //             user:ouser.value,
+    //             type:"checkuser"
+    //         },
+    //         success:function(res){
+    //             console.log(user = true)
+    //         }
+    //     })
+    // }
+
+    ouser.addEventListener('blur',function(){
+            ajax({
+                url:"http://127.0.0.1:3000/api",
+                data:{
+                    user:ouser.value,
+                    type:"checkuser"
+                },
+                success:function(res){
+                    console.log(res)
+                    // if(res == "true"){
+                    //     user = true;
+                    // }else{
+                    //     user = false;  //修改user为false，不再请求obtn的ajax
+                    // }
+                }
+            })
+    })
+
     obtn.onclick = function(){
         if(clause2.checked){
             if(user && pass && pass2 && phone){
@@ -279,5 +310,7 @@
             clause2.parentNode.nextElementSibling.innerHTML = "您没有接受协议";
         }
     }
+
+
 
 </script>

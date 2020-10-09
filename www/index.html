@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Keywords" content="网航,政府采购,高校采购,电脑,打印机,空调,办公家具 一站式采购">
+  <meta name="Description" content="网航商城是河南省政府批准，财政厅审核资质认可的电商采购平台">
+  <title>网航商城 | 一站式服务平台</title>
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <meta name="referrer" content="never">
     
     <link rel="stylesheet" href="./css/icon/iconfont.css">
     <link rel="stylesheet" href="./css/reset.css">
@@ -51,19 +54,24 @@
         $(document).ready(function(){
         $(function()
             {$('.topBox').load('./module/public.html .top',function(){
-              let userMsg = localStorage.getItem("userMsg");
-              userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
+              
+              let loginStatus = sessionStorage.getItem("loginStatus");
+              loginStatus = loginStatus ? JSON.parse(loginStatus) : {user:"",pass:""};
               let str = "";
-              if(userMsg.user != "" || userMsg.pass != ""){
-                str = `<span>您好 &nbsp;<a href="list.html">${userMsg.user}</a></span>
-                <span>，欢迎来到&nbsp;<a alt="首页" title="首页" href="">网航商城</a></span>
-                <span>[<a href="/home/member/logout.html">退出</a>]</span>`
+              if(loginStatus.state === 1){
+                str = `<span>您好 &nbsp;<a href="list.html">${loginStatus.user}</a></span>
+                <span>，欢迎来到&nbsp;<a alt="首页" title="首页" href="index.html">网航商城</a></span>
+                <span>[<a href="index.html">退出</a>]</span>`
                 
                 $('.txt-info')[0].innerHTML = str;
-                $('.login-info')[0].innerHTML = `<span>Hi,${userMsg.user}</span>
+                $('.login-info')[0].innerHTML = `<span>Hi,${loginStatus.user}</span>
                 <a href="/member.html" class="login-button login-success">进入会员中心</a>`
                 
-
+                if($('.txt-info').find('span').eq(2).children()[0]){
+                    $('.txt-info').find('span').eq(2).children()[0].onclick = function(){
+                    sessionStorage.clear();
+                  }
+                }
               }
             });
                 $('.headerBox').load('./module/public.html .header');
@@ -106,9 +114,9 @@
                     item:$('.banner'),
                     btn:true,
                     list:true,
-                    autoPlay:true,
+                    autoPlay:false,
                     delayTime:3000,
-                    moveTime:300,
+                    moveTime:3000,
                     index:2
                 });
 
@@ -125,6 +133,7 @@
                   url:"http://www.hngpmall.com/home/index/ajaxGuessYouLike",
                   success:res=>$('.lift-channel').find("ul").html(res)
                 })
+
                 })
             });
         })
@@ -164,7 +173,7 @@
                   </div>
                   <div class="login-info">
                     <span>Hi，欢迎来到网航商城</span>
-                    <a href="/home/login/index.html" target="_blank" class="register_button">用户登录</a></div>
+                    <a href="login.html" target="_blank" class="register_button">用户登录</a></div>
                 </div>
                 <div class="vip-item">
                   <div class="tit">
@@ -203,7 +212,7 @@
             <div class="categorys site-mast">
               
             </div>
-            <div class="mall-search">
+            <!-- <div class="mall-search">
               <div class="shop-search">
                   <div class="form">
                       <form id="searchForm" name="searchForm" method="get" action="/home/category/catgoodslist" onsubmit="return checkSearchForm(this)" class="search-form">
@@ -212,15 +221,15 @@
                       </form>
                   </div>
               </div>
-          </div>
+          </div> -->
           
-          <div class="top-cart">
+          <!-- <div class="top-cart">
             <a href="/index.php/home/cart/index.html">
               <i class="iconfont icon-gouwuche"></i>
               <span></span>
               <em class="count cart_num">0</em>
           </a>
-          </div>
+          </div> -->
         </div>
     </div>
     <!-- banner部分 -->
@@ -336,14 +345,14 @@
 
                       </div>
                       <div class="floor-left-double">
-                        <a href="/home/goods/detail/id/4021.html" target="_blank">
+                        <a href="/list.html4021.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20190710/97b4a94c95c0fa6a3fb1d35d175268d7.png">
                         </a>
                       </div>
                     </div>
                     <div class="ad-r-items">
                       <div class="f-r-m-item">
-                        <a href="/home/goods/detail/id/79.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <div class="title">
                             <h3>小巧精致</h3>
                             <span>使用畅通无忧</span>
@@ -352,7 +361,7 @@
                         </a>
                       </div>
                       <div class="f-r-m-item">
-                        <a href="/home/goods/detail/id/365.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <div class="title">
                             <h3>高效办公</h3>
                             <span>强劲性能助力</span>
@@ -361,7 +370,7 @@
                         </a>
                       </div>
                       <div class="f-r-m-item">
-                        <a href="/home/goods/detail/id/433.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <div class="title">
                             <h3>英特尔酷睿</h3>
                             <span>防眩光显示屏</span>
@@ -370,7 +379,7 @@
                         </a>
                       </div>
                       <div class="f-r-m-item">
-                        <a href="/home/goods/detail/id/3144.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <div class="title">
                             <h3>品质保证</h3>
                             <span>安心服务 快速上门</span>
@@ -394,7 +403,7 @@
             <div class="floor-fd">
               <div class="floor-fd-brand clearfix">
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/209.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -405,7 +414,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/428.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -416,7 +425,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/434.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -427,7 +436,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/507.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -438,7 +447,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/514.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -449,7 +458,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/259.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -460,7 +469,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/519.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -471,7 +480,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/524.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -482,7 +491,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/271.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -493,7 +502,7 @@
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/272.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -602,14 +611,14 @@ data-li="1" shoptype="visualItme" data-diff="2">
                     </div>
                   </div>
                   <div class="floor-left-double">
-                    <a href="/home/goods/detail/id/782.html" target="_blank">
+                    <a href="/list.html" target="_blank">
                       <img src="http://image.hngpmall.com/upload/image/20190712/c38fdc5406b7e4a784c15bbd98717ed8.png">
                     </a>
                   </div>
                 </div>
                 <div class="ad-r-items">
                   <div class="f-r-m-item">
-                    <a href="/home/goods/detail/id/465.html" target="_blank">
+                    <a href="/list.html" target="_blank">
                       <div class="title">
                         <h3>
                           清晰画质
@@ -622,7 +631,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
                     </a>
                   </div>
                   <div class="f-r-m-item">
-                    <a href="/home/goods/detail/id/3214.html" target="_blank">
+                    <a href="/list.html" target="_blank">
                       <div class="title">
                         <h3>
                           无纸接收
@@ -635,7 +644,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
                     </a>
                   </div>
                   <div class="f-r-m-item">
-                    <a href="/home/goods/detail/id/9095.html" target="_blank">
+                    <a href="/list.html" target="_blank">
                       <div class="title">
                         <h3>
                           多纸发送
@@ -648,7 +657,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
                     </a>
                   </div>
                   <div class="f-r-m-item">
-                    <a href="/home/goods/detail/id/8928.html" target="_blank">
+                    <a href="/list.html" target="_blank">
                       <div class="title">
                         <h3>
                           核心技术
@@ -667,12 +676,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/8194.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20190523/8639bd74e5564002907c8cf805feef06.jpeg">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/8194.html" title="S2701">
+                        <a href="/list.html" title="S2701">
                           S2701
                         </a>
                       </div>
@@ -695,12 +704,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/13062.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20170517/b88c7b8d89db4a1ebfda40ca07882d40.png">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/13062.html" title="3129">
+                        <a href="/list.html" title="3129">
                           3129
                         </a>
                       </div>
@@ -723,12 +732,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/2567.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20170323/e0cecd0c421c4eb6b70016fc478f22f4.png">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/2567.html" title="C-668">
+                        <a href="/list.html" title="C-668">
                           C-668
                         </a>
                       </div>
@@ -751,12 +760,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/28425.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20180123/31ffc28915fa4b56b4f3df8a169411d2.png">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/28425.html" title="震旦AS-108CD碎纸机">
+                        <a href="/list.html" title="震旦AS-108CD碎纸机">
                           震旦AS-108CD碎纸机
                         </a>
                       </div>
@@ -779,12 +788,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/4367.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20170901/96e3bf2254b247b8b43114e89637528f.jpeg">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/4367.html" title="MSD9280">
+                        <a href="/list.html" title="MSD9280">
                           MSD9280
                         </a>
                       </div>
@@ -807,12 +816,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/11541.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20161215/1a4bd559dab7493793638bce3d86da6c.png">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/11541.html" title="金盾II">
+                        <a href="/list.html" title="金盾II">
                           金盾II
                         </a>
                       </div>
@@ -835,12 +844,12 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   <li class="opacity_img">
                     <div class="product">
                       <div class="p-img">
-                        <a href="/home/goods/detail/id/16917.html" target="_blank">
+                        <a href="/list.html" target="_blank">
                           <img src="http://image.hngpmall.com/upload/image/20161219/e46bb969a01f489db5adcbafa1cc3acf.png">
                         </a>
                       </div>
                       <div class="p-name">
-                        <a href="/home/goods/detail/id/16917.html" title="科密P3450碎纸机">
+                        <a href="/list.html" title="科密P3450碎纸机">
                           科密P3450碎纸机
                         </a>
                       </div>
@@ -1748,7 +1757,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
             <div class="floor-fd">
               <div class="floor-fd-brand clearfix">
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/209.html" target="_blank">
+                  <a href="/list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -1759,7 +1768,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/index.php/home/category/catgoodslist/brand_id/184.html" target="_blank">
+                  <a href="list.html" target="_blank">
                     <div class="link-l">
                     </div>
                     <div class="img">
@@ -1934,7 +1943,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
           </i>
         </div>
         <div class="lift-item lift-item-top" shoptype="liftItem">
-          <i class="iconfont icon-returntop">
+          <i class="iconfont icon-returntop">回到顶部
           </i>
         </div>
       </div>
@@ -2328,6 +2337,7 @@ data-li="1" shoptype="visualItme" data-diff="2">
         }
       }
       new rightCart()
+
       </script>
 </body>
 </html>

@@ -35,6 +35,8 @@ const server = http.createServer(function(req,res){
                         break;
                     case "login":reg(data,req,res);
                         break;
+                    case "checkuser":checkuser(data,req,res);
+                        break;
                     case "brand":brand(data,req,res);
                         break;
                     case "goods":goods(data,req,res);
@@ -70,6 +72,7 @@ const server = http.createServer(function(req,res){
 //     console.log(err)
 // })
 var status = 0;
+var isLogin = false;
 var arr = [];
 var msg = {};
 function login(data,req,res){
@@ -115,9 +118,10 @@ function login(data,req,res){
 function reg(data,req,res){
     for(var i=0;i<arr.length;i++){
         if(arr[i].user === data.user && arr[i].pass === data.pass){
-            msg = {code:2,msg:"登录成功"}
+            arr[i].state = 1;
+            msg = {code:2,msg:"登录成功",data:arr[i]}
         }else{
-            msg = {code:3,msg:"登录失败"}
+            msg = {code:3,msg:"登录失败",data:"NOT DATA"}
         }
     }
     res.write(JSON.stringify(msg));
@@ -150,5 +154,27 @@ function goods(data,req,res){
 function detail(data,req,res){
     let goodsData = fs.readFileSync("./www/data/goods.json");
     res.write(goodsData);
+    res.end();
+}
+function checkuser(data,req,res){
+    console.log(arr)
+    console.log(data.user)
+    for(var i=0;i<arr.length ;i++){
+        if(arr[i].user === data.user){
+            status =2;
+        }else{
+            status = 5;
+        }
+
+    }
+    if(arr.length ==0){
+        status =5;
+    }
+    if(status ===2){
+        res.write("false");
+    }else if(status === 5){
+        res.write("true");
+    }
+    
     res.end();
 }

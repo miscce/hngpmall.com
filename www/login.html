@@ -111,7 +111,15 @@
         var savelogin = document.querySelector('.ui-label');
         var msgerror = document.querySelector('.msg-error');
 
+
+
         login.onclick = function(){
+            let loginStatus = sessionStorage.getItem("loginStatus");
+            loginStatus = loginStatus ? JSON.parse(loginStatus) : {user:"",pass:""};
+            if(loginStatus.state === 1){
+                alert("请勿重复登录")
+                location.href = "list.html"
+            }
             ajax({
                 url:"http://127.0.0.1:3000/api",
                 data:{user:user.value,
@@ -121,7 +129,9 @@
                 success:res=>{
                     var res = JSON.parse(res)
                     console.log(pass.value)
+                    console.log(res.data)
                     if(res.code === 2){ 
+                        sessionStorage.setItem("loginStatus",JSON.stringify(res.data))
                         msgerror.style.display = "block";
                         msgerror.innerHTML = "5秒后跳转到商品页" + "<a href='list.html'>立即跳转</a>";
                         var second = 5;

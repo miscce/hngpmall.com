@@ -178,18 +178,24 @@
         $(document).ready(function(){
             $(function()
               {$('.topBox').load('./module/public.html .top',function(){
-              let userMsg = localStorage.getItem("userMsg");
-              userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
-              let str = "";
-              if(userMsg.user != "" || userMsg.pass != ""){
-                str = `<span>您好 &nbsp;<a href="list.html">${userMsg.user}</a></span>
-                <span>，欢迎来到&nbsp;<a alt="首页" title="首页" href="">网航商城</a></span>
-                <span>[<a href="/home/member/logout.html">退出</a>]</span>`
-                
-                $('.txt-info')[0].innerHTML = str;
+                let loginStatus = sessionStorage.getItem("loginStatus");
+                loginStatus = loginStatus ? JSON.parse(loginStatus) : {user:"",pass:""};
+                console.log(loginStatus)
+                let str = "";
+                if(loginStatus.state === 1){
+                  str = `<span>您好 &nbsp;<a href="list.html">${loginStatus.user}</a></span>
+                  <span>，欢迎来到&nbsp;<a alt="首页" title="首页" href="index.html">网航商城</a></span>
+                  <span>[<a href="index.html">退出</a>]</span>`
+                  $('.txt-info')[0].innerHTML = str;
+                }
 
-              }
-            });
+                  if($('.txt-info').find('span').eq(2).children()[0]){
+                    $('.txt-info').find('span').eq(2).children()[0].onclick = function(){
+                    sessionStorage.clear();
+                  }
+                }
+                
+              });
             })
 
             $('.footerBox').load('./module/public.html .footer-new')
