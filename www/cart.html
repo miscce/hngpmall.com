@@ -182,7 +182,7 @@
 
             $('.footerBox').load('./module/public.html .footer-new')
             new cart();
-            
+
             $.ajax({
               // url:"http://www.hngpmall.com/home/cart/guessYouLike",
               url:"http://127.0.0.1:3000/data/goods.json",
@@ -222,12 +222,7 @@
                 this.addEvent();
             }
             addEvent(){
-                var that = this;
-                window.addEventListener('load',function(){
-                  console.log($('.buy-num'))
-                })
-
-                this.selectAll.onclick = function(){
+                var that = this;this.selectAll.onclick = function(){
                         for(var i=0;i<that.itemList.children.length;i++){
                             if(that.selectAll.checked){
                                 that.maxNum = that.itemList.children.length;
@@ -250,13 +245,22 @@
                     var e = eve || window.event;
                     var tar = e.target || e.srcElement;       
                     that.update(tar);
-                    
-                    console.log($(tar).val())
+
+                    // if($(tar).val()>that.val){
+                      // that.itemPrice(tar,1)
+                      // that.priceAll = parseInt($(tar).parents('.item-form').find('.buy-num').val() * $(tar).parents('.item-form').find('#_51_subtotal').text())
+                      // var arr = 0;
+                      // console.log(arr = that.priceAll)
+                    // }else{
+                      // that.itemPrice(tar,-1)
+                    // }
+                    // that.prices.innerHTML = that.priceAll
                 })
 
                 this.itemList.addEventListener('click',function(eve){
                     var e = eve || window.event;
                     var tar = e.target || e.srcElement;
+                    that.val = $('.buy-num').val() //当前输入框val
                     that.remove(tar);
 
                     if(tar.className === "ui-checkbox"){
