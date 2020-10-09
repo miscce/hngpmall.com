@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/base.css">
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/style.css">
+    <link rel="stylesheet" href="css/icon/iconfont.css">
+</head>
+    <body class="bg-ligtGary">
+        <div class="login">
+            <div class="loginRegister-header">
+                <div class="w w1200">
+                    <div class="logo">
+                        <div class="logoImg">
+                            <a href="index.html" class="logo">
+                                <img src="http://image.hngpmall.com/upload/image/20190706/273992d0041e54abf012714ba636ea0f.png">
+                            </a>
+                        </div>
+                        <div class="logo-span"></div>
+                    </div>
+                    <div class="header-href">
+                        <span>
+                            还没有账号<a href="./register.html" class="jump">免费注册</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="w w1200">
+                        <div class="login-form">
+                            <div class="login-box">
+                                <div class="tit">
+                                    <h3>账号登录</h3>
+                                    <span></span>
+                                </div>
+                                <div class="msg-wrap">
+                                    <div class="msg-error" style="display:none">账户名与密码不匹配，请重新输入</div>
+                                </div>
+                                <div class="form">
+                                    <form name="formLogin" action="/home/login/index" method="post" onsubmit="userLogin();return false;">
+                                        <div class="item">
+                                            <div class="item-info">
+                                                <i class="iconfont icon-name"></i>
+                                                <input type="text" id="username" name="username" class="text" value="" placeholder="用户名/邮箱/手机" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="item" shoptype="password">
+                                            <div class="item-info">
+                                                <i class="iconfont icon-icon-password"></i>
+                                                <input type="password" style="display:none">
+                                                <input type="password" id="nloginpwd" name="password" class="text" value="" placeholder="密码" autocomplete="off">
+                                            </div>
+                                        </div>
+                                                                        <div class="item">
+                                            <input id="remember" name="remember" type="checkbox" class="ui-checkbox" onclick="rememberMe()">
+                                            <label for="remember" class="ui-label">请保存我这次的登录信息。</label>
+                                        </div>
+                                        <div class="item item-button">
+                                            <input type="button" name="submit" id="loginSubmit" value="登&nbsp;&nbsp;录" class="btn sc-redBg-btn">
+                                        </div>
+                                        <input type="hidden" name="beforeUrl" value="">
+                                        <a href="/home/login/smslogin" class="notpwd gary">短信登录</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="login-banner" href="javascript:void(0)" style="background:url(./img/1551384848434769152.png) center center no-repeat;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer user-footer">
+            <div class="shop-copyright">
+                <div class="w w1200">
+                    <p class="footer-ecscinfo pb10">
+                        <a href="/">首页</a>
+                        |
+                        <a href="/home/article/content?article_id=2">隐私保护</a>
+                        |
+                        <a href="/home/article/content?article_id=4">联系我们</a>
+                        |
+                        <a href="/home/article/content?article_id=1">免责条款</a>
+                        |
+                        <a href="/home/article/content?article_id=5">公司简介</a>
+                        |
+                        <a href="/home/index/cooperation.html" target="_blank">我要合作</a>
+                    </p>
+                    <p class="copyright_info">ICP备案证书号:
+                        <a href="http://www.beian.miit.gov.cn" target="_blank">  15002903</a> &nbsp;POWERED BY
+                        <a href="/" target="_blank">网航商城</a>2.0
+                    </p>
+                </div>
+            </div>
+            <div class="hidden">
+                <input type="hidden" name="seller_kf_IM" value="" rev="" ru_id="">
+                <input type="hidden" name="seller_kf_qq" value="11647006">
+                <input type="hidden" name="seller_kf_tel" value="400-1234-5678">
+                <input type="hidden" name="user_id" value="0">
+            </div>
+        </div>
+
+    <script src="lib/ajax.js"></script>
+    <script>
+        var user = document.querySelector('#username');
+        var pass = document.querySelector('#nloginpwd');
+        var login = document.querySelector('#loginSubmit');
+        var savelogin = document.querySelector('.ui-label');
+        var msgerror = document.querySelector('.msg-error');
+
+        login.onclick = function(){
+            ajax({
+                url:"http://127.0.0.1:3000/api",
+                data:{user:user.value,
+                      pass:pass.value,
+                      type:"login"
+                },
+                success:res=>{
+                    var res = JSON.parse(res)
+                    console.log(pass.value)
+                    if(res.code === 2){ 
+                        msgerror.style.display = "block";
+                        msgerror.innerHTML = "5秒后跳转到商品页" + "<a href='list.html'>立即跳转</a>";
+                        var second = 5;
+                        setInterval(() => {
+                            second--;
+                            if(second <= 0){
+                            location.href = "list.html"
+                            }
+                            msgerror.style.display = "block";
+                            msgerror.innerHTML = second + "秒后跳转到商品页" + "<a href='list.html'>立即跳转</a>";
+                        }, 1000);
+                    }else{
+                        msgerror.style.display = "block";
+                    }
+                }
+            })
+        }
+
+        
+        // 读取记住的帐号信息
+        let userMsg = localStorage.getItem("userMsg");
+        userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
+        user.value = userMsg.user;
+        pass.value = userMsg.pass;
+        var isstorename = "no";
+        function rememberMe(){
+            // 每次点击改变状态
+            if(isstorename === "no"){
+                isstorename = "yes";
+                var obj = {
+                "user" : user.value,
+                "pass" : pass.value
+                }
+
+            }else{
+                isstorename = "no"
+                var obj = {
+                "user" : "",
+                "pass" : ""
+                }
+            }   
+            console.log(isstorename)
+
+            localStorage.setItem("userMsg",JSON.stringify(obj))
+        }
+    </script>
+</body>
+</html>

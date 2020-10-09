@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/style.css">
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/base.css">
+    <link rel="stylesheet" href="css/icon/iconfont.css">
+</head>
+<body>
+    <div class="topBox">
+    
+    </div>
+    <div class="w w1200">
+        <div class="cart-warp hide show">
+            <div class="cart-filter">
+              <div class="cart-stepflex">
+                <div class="cart-step-item curr">
+                  <span>
+                    1.我的购物车
+                  </span>
+                  <i class="iconfont icon-arrow-right-alt">
+                  </i>
+                </div>
+                <div class="cart-step-item">
+                  <span>
+                    2.填写订单信息
+                  </span>
+                  <i class="iconfont icon-arrow-right-alt">
+                  </i>
+                </div>
+                <div class="cart-step-item">
+                  <span>
+                    3.成功提交订单
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="cart-table">
+              <div class="cart-head">
+                <div class="column c-checkbox">
+                  <div class="cart-checkbox cart-all-checkbox">
+                    <input type="checkbox" id="cart-selectall" class="ui-checkbox CheckBoxShop">
+                    <label for="cart-selectall" class="ui-label-14">
+                      全选
+                    </label>
+                  </div>
+                </div>
+                <div class="column c-goods">
+                  商品
+                </div>
+                <div class="column c-props">
+                </div>
+                <div class="column c-price">
+                  单价（元）
+                </div>
+                <div class="column c-quantity">
+                  数量
+                </div>
+                <div class="column c-sum">
+                  小计
+                </div>
+                <div class="column c-action">
+                  操作
+                </div>
+              </div>
+              <div shoptype="cartTboy" class="cart-tbody">
+                <div shoptype="shopItem" class="cart-item">
+                  <div class="shop">
+                    <div shoptype="ckList" class="cart-checkbox">
+                      <input type="checkbox" id="shopid_0" name="checkShop" class="ui-checkbox CheckBoxShop">
+                      <label for="shopid_0" class="ui-label-14">
+                        &nbsp;
+                      </label>
+                    </div>
+                    <div class="shop-txt">
+                      网航商城
+                    </div>
+                  </div>
+                  <div shoptype="itemList" class="item-list">
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="cart-tfoot">
+                <div shoptype="tfoot-toolbar" class="cart-toolbar">
+                  <div class="w w1200">
+                    <div shoptype="ckList" class="cart-checkbox cart-all-checkbox">
+                      <input type="checkbox" id="toggle-checkboxes-down" shoptype="ckAll" class="ui-checkbox checkboxshopAll">
+                      <label for="toggle-checkboxes-down" class="ui-label-14">
+                        全选
+                      </label>
+                    </div>
+                    <div class="operation">
+                      <a href="javascript:void(0);" class="cart-remove-batch">
+                        删除选中的商品
+                      </a>
+                      <a href="javascript:void(0);" class="cart-follow-batch">
+                        移到我的收藏
+                      </a>
+                    </div>
+                    <div class="toolbar-right">
+                      <div class="comm-right">
+                        <div class="btn-area">
+                          <input name="goPay" type="button" value="去支付" class="submit-btn">
+                        </div>
+                        <div id="total_desc" class="price-sum">
+                          <span class="txt">
+                            总价(不含运费)：
+                          </span>
+                          <span id="cart_goods_amount" shoptype="goods_total" class="price sumPrice">
+                            <em>
+                              ¥
+                            </em>
+                            0
+                          </span>
+                        </div>
+                        <div class="reduce-sum">
+                          <span class="txt">
+                            已节省：
+                          </span>
+                          <span id="save_total_amount" shoptype="save_total" class="price totalRePrice">
+                            <em>
+                              ¥
+                            </em>
+                            0
+                          </span>
+                        </div>
+                        <div class="amount-sum">
+                          已选择
+                          <em shoptype="cartNum" class="cart_check_num">
+                            0
+                          </em>
+                          件商品
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-panel-main c-history">
+            <div class="ftit ftit-delr">
+              <h3>猜你喜欢</h3></div>
+            <div class="gl-list clearfix">
+              <ul class="clearfix">
+                <p>
+                  <!-- <li class="opacity_img">
+                    <div class="p-img">
+                      <a href="/home/goods/detail?id=579" target="_blank">
+                        <img src="http://image.hngpmall.com/upload/image/20171013/c7b18d13b54e4c8cbccbb10435ce6237.png" width="190" height="190"></a>
+                    </div>
+                    <div class="p-price">
+                      <em>¥</em>17677.00</div>
+                    <div class="p-name">
+                      <a href="/home/goods/detail?id=579" title="Surface Pro商用版本 I7-7660U/16G/1T/12.3 Windows专业版系统（含键盘）" target="_blank">Surface Pro商用版本 I7-7660U/16G/1T/12.3 Windows专业版系统（含键盘）</a></div>
+                    <div class="p-num">已售
+                      <em>0</em>件</div></li> -->
+                </p>
+              </ul>
+            </div>
+          </div>
+</div>
+
+    <div class="footerBox">
+
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="/lib/ajax.js"></script>
+    <script src="/lib/cookie.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(function(){
+                $('.topBox').load('./module/public.html .top')
+            })
+
+            $('.footerBox').load('./module/public.html .footer-new')
+            new cart();
+            
+            $.ajax({
+              // url:"http://www.hngpmall.com/home/cart/guessYouLike",
+              url:"http://127.0.0.1:3000/data/goods.json",
+              success:function(res){
+                console.log(res)
+                let str = "";
+                for(let i=0;i<res.data.length;i++){
+                  str += `<li class="opacity_img">
+                    <div class="p-img">
+                      <a href="/detail.html?id=${res.data[i].product_id}" target="_blank">
+                        <img src="${res.data[i].itempic}" width="190" height="190"></a>
+                    </div>
+                    <div class="p-price">
+                      <em>¥</em>${res.data[i].itemprice}</div>
+                    <div class="p-name">
+                      <a href="/detail.html?id=${res.data[i].product_id}" title="${res.data[i].itemshorttitle}" target="_blank">${res.data[i].itemshorttitle}</a></div>
+                    <div class="p-num">已售
+                      <em>${res.data[i].itemsale}</em>件</div></li>`
+                }
+                $('.clearfix').find("p").html(str);
+              },
+              dataType:"json"
+            })
+        })
+
+
+        class cart{
+            constructor(){
+                this.itemList = document.querySelector('.item-list')
+                this.selectAll = document.querySelector('#cart-selectall');
+                this.cartchecknum = document.querySelector('.cart_check_num');
+                this.priceAll = 0;
+                this.maxNum = 0;
+                this.cartnum = 0;
+                this.prices = document.querySelector('#cart_goods_amount')
+                this.getData();
+                this.addEvent();
+            }
+            addEvent(){
+                var that = this;
+                window.addEventListener('load',function(){
+                  console.log($('.buy-num'))
+                })
+
+                this.selectAll.onclick = function(){
+                        for(var i=0;i<that.itemList.children.length;i++){
+                            if(that.selectAll.checked){
+                                that.maxNum = that.itemList.children.length;
+                                $(that.itemList.children[i]).find('.ui-checkbox')[0].checked = true;
+                                that.priceAll += $(that.itemList.children[i]).find('#_51_subtotal').text() * $(that.itemList.children[i]).find('.buy-num').val();
+                                that.cartnum += parseInt($(that.itemList.children[i]).find('.buy-num').val());
+                            }else{
+                                that.maxNum = 0;
+                                $(that.itemList.children[i]).find('.ui-checkbox')[0].checked = false;
+                                that.priceAll = 0;
+                                that.cartnum = 0;
+                            }
+                            that.cartchecknum.innerHTML = that.cartnum;
+                            that.prices.innerHTML = "<em>¥</em>" + parseInt(that.priceAll);
+                        }
+                    
+                }
+                
+                this.itemList.addEventListener('input',function(eve){
+                    var e = eve || window.event;
+                    var tar = e.target || e.srcElement;       
+                    that.update(tar);
+                    
+                    console.log($(tar).val())
+                })
+
+                this.itemList.addEventListener('click',function(eve){
+                    var e = eve || window.event;
+                    var tar = e.target || e.srcElement;
+                    that.remove(tar);
+
+                    if(tar.className === "ui-checkbox"){
+                        
+                        
+                        that.commPrice(tar);
+
+                        if(that.maxNum === that.itemList.children.length){
+                            that.selectAll.checked = true
+                        }else{
+                            that.selectAll.checked = false
+                        }
+                        that.cartchecknum.innerHTML = that.cartnum;
+                        that.prices.innerHTML = "<em>¥</em>" + parseInt(that.priceAll);
+                    }
+
+                    that.numUp(tar);
+                    
+                    that.numDown(tar);
+
+                })
+            }
+            commPrice(tar){
+              if(tar.checked){
+                            this.maxNum++;
+                            this.goods = parseInt(tar.parentNode.parentNode.parentNode.children[4].children[0].children[0].value)
+                            this.price = tar.parentNode.parentNode.parentNode.children[5].children[0].innerText
+                            this.cartnum += parseInt(tar.parentNode.parentNode.parentNode.children[4].children[0].children[0].value)
+                            this.priceAll = this.priceAll + this.goods * this.price
+                        }else{
+                            this.maxNum--;
+                            this.cartnum -= parseInt(tar.parentNode.parentNode.parentNode.children[4].children[0].children[0].value)
+                            this.priceAll = this.priceAll - $(tar).parents('.item-form').find('#_51_subtotal').text() * tar.parentNode.parentNode.parentNode.children[4].children[0].children[0].value
+                            console.log($(tar).parents('.item-form').find('#_51_subtotal').text())
+                        }
+                        this.prices.innerHTML = "<em>¥</em>" + parseInt(this.priceAll);
+            }
+            itemPrice(tar,down){
+              if($(tar).parents('.item-form').find('.ui-checkbox')[0].checked){
+                if(down === 1){
+                  this.prices.innerHTML = this.priceAll += parseInt($(tar).parents('.item-form').find('#_51_subtotal').text())
+                }else{
+                  this.prices.innerHTML = this.priceAll -= parseInt($(tar).parents('.item-form').find('#_51_subtotal').text())
+                }
+              }
+            }
+            numUp(tar){
+                if(tar.className === "iconfont icon-Icon_up"){
+                      tar.parentNode.parentNode.parentNode.children[0].value++
+                      this.update($(tar).parents('.item-form').find('.buy-num')[0])
+
+                      this.itemPrice(tar,1)
+                  }
+            }
+            numDown(tar){
+                if(tar.className === "iconfont icon-Icon_down"){
+                  if(tar.parentNode.parentNode.parentNode.children[0].value>=2){
+                    console.log(tar.parentNode.parentNode.parentNode.children[0].value--)
+                      this.update($(tar).parents('.item-form').find('.buy-num')[0])
+
+                      this.itemPrice(tar,-1)
+                  }
+                      
+                }
+            }
+            getData(){
+                this.data = getCookie("goodsMsg") ? JSON.parse(getCookie("goodsMsg")) : [];
+                this.cartajax();
+            }
+            cartajax(){
+                ajax({
+                    url: "http://127.0.0.1:3000/api",
+                        data:{
+                        file:"data/goods.json",
+                        type:"goods"
+                        },               
+                    success:res=>{
+                        this.res = JSON.parse(res)
+                        this.render();
+                        }
+                    
+                })
+            }
+            render(){
+                let str = "";
+                for(let i=0;i<this.data.length;i++){
+                    for(let j=0;j<this.res.data.length;j++){
+                        if(this.data[i].id === this.res.data[j].product_id){
+                            str += `
+                            <div class="item-single">
+                                <div shoptype="item" id="product_1312" data-recid="1312" data-goodsid="${this.data[i].id}" class="item-item selected">
+                                    <div class="item-form">
+                                    <div class="cell s-checkbox">
+                                        <div shoptype="ckList" class="cart-checkbox">
+                                        <input type="checkbox" name="checkItem" id="checkItem_0_${i}" class="ui-checkbox">
+                                        <label for="checkItem_0_${i}" class="ui-label-14">&nbsp;</label></div>
+                                    </div>
+                                    <div class="cell s-goods">
+                                        <div class="goods-item">
+                                        <div class="p-img">
+                                            <a href="/detail.html?id=${this.data[i].id}" target="_blank">
+                                            <img src="${this.res.data[j].itempic}" width="70" height="70"></a>
+                                        </div>
+                                        <div class="item-msg">
+                                            <a href="/detail.html?id=${this.data[i].id}" target="_blank">${this.res.data[j].itemdesc}</a>
+                                            <div class="gds-types"></div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell s-props" style="width: 190px;">
+                                        <!---->
+                                        <br></div>
+                                    <div class="cell s-price" style="width: 158px;">
+                                        <strong>
+                                        <em>￥</em>${this.res.data[j].itemprice}</strong>
+                                        <p class="gray">
+                                        <em>￥</em>${this.res.data[j].itemprice}</p></div>
+                                    <div class="cell s-quantity" style="width: 128px;height: 50px;">
+                                        <div class="amount-warp">
+                                        <input type="text" shoptype="number" class="text buy-num" min="1" value="${this.data[i].num}">
+                                        <div class="a-btn">
+                                            <a href="javascript:void(0);" class="btn-add">
+                                            <i class="iconfont icon-Icon_up"></i>
+                                            </a>
+                                            <a href="javascript:void(0);" class="btn-reduce ">
+                                            <i class="iconfont icon-Icon_down"></i>
+                                            </a>
+                                        </div>
+                                        </div>
+                                        <div class="tc ftx-03">有货</div></div>
+                                    <div class="cell s-sum" style="width: 130px;">
+                                        <strong id="goods_subtotal_51">
+                                        <em id="_51_subtotal">${this.res.data[j].itemprice}</em></strong>
+                                        <div class="cuttip hide">
+                                        <span class="tit">优惠</span>
+                                        <span class="price">
+                                            <em>￥</em>0.00</span></div>
+                                    </div>
+                                    <div class="cell s-action">
+                                        <a href="javascript:void(0);" class="cart-remove" index=${this.data[i].id}>删除</a></div>
+                                    </div>
+                                </div>
+                                </div> `
+                        }
+                    }
+                }
+                this.itemList.innerHTML  = str;
+            }
+            remove(tar){
+                if(tar.className === "cart-remove"){
+                    for(var i=0;i<this.data.length;i++){
+                        if(tar.getAttribute("index") === this.data[i].id){
+                            tar.parentNode.parentNode.parentNode.parentNode.remove();
+                            this.data.splice(i, 1);
+                            setCookie("goodsMsg",JSON.stringify(this.data));
+                        }
+                    }
+                    // console.log(tar.parentNode.parentNode.parentNode.parentNode)
+                }
+            }
+            update(tar){
+                if(tar.className === "text buy-num"){
+                    for(var i=0;i<this.data.length;i++){
+                        if(tar.parentNode.parentNode.parentNode.parentNode.getAttribute("data-goodsid") === this.data[i].id){
+                            this.data[i].num = tar.value
+                            setCookie("goodsMsg",JSON.stringify(this.data));
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

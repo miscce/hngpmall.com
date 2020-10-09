@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Keywords" content=""/>
+    <meta name="Description" content=""/>
+    <title>注册-登录</title>
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/base.css">
+    <link rel="stylesheet" href="http://www.hngpmall.com/public/static/theme/css/style.css">
+    <link rel="stylesheet" href="css/icon/iconfont.css">
+</head>
+<body class="bg-ligtGary">
+<div class="register">
+    <div class="loginRegister-header">
+        <div class="w w1200">
+            <div class="logo">
+                <div class="logoImg">
+                    <a href="index.html" class="logo">
+                        <img src="http://image.hngpmall.com/upload/image/20190706/273992d0041e54abf012714ba636ea0f.png"/>
+                    </a>
+                </div>
+                <div class="logo-span"></div>
+            </div>
+            <div class="header-href">
+                <span>已注册可<a href="./login.html" class="jump">在此登录</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="w w1200">
+            <div class="register-wrap">
+                <div class="register-adv">
+                    <a href="javascript:void(0)">
+                        <img width="400" height="324" src="./img/1488939821671881226.jpg"/>
+                    </a>
+                </div>
+                <div class="register-form">
+                    <div class="form form-other">
+                        <form action="##" method="post" name="formUser">
+                            <div class="item">
+                                <div class="item-label">用　户　名</div>
+                                <div class="item-info">
+                                    <input type="text" name="username" id="username" class="text" value=""/>
+                                </div>
+                                <div class="input-tip"></div>
+                            </div>
+                            <div class="item">
+                                <div class="item-label">设 置 密 码</div>
+                                <div class="item-info">
+                                    <input type="password" style="display:none"/>
+                                    <input type="password" name="password" id="pwd" class="text" value=""/>
+                                </div>
+                                <div class="input-tip"></div>
+                            </div>
+                            <div class="item">
+                                <div class="item-label">确 认 密 码</div>
+                                <div class="item-info">
+                                    <input type="password" style="display:none"/>
+                                    <input type="password" name="confirm_password" id="pwdRepeat" class="text" />
+                                </div>
+                                <div class="input-tip"></div>
+                            </div>
+                            <div class="item" id="phone_yz">
+                                <div class="item-label">手 机 号 码</div>
+                                <div class="item-info">
+                                    <input type="text" name="mobile_phone" id="mobile_phone" class="text" />
+                                </div>
+                                <div class="input-tip"></div>
+                            </div>
+                                                        <div class="item item2">
+                                <div class="item-checkbox">
+                                    <input type="checkbox" id="clause2" class="ui-solid-checkbox" checked="checked"
+                                           value="1" name="mobileagreement">
+                                    <label class="ui-solid-label" for="clause2">
+                                        我已阅读并同意
+                                        <a href="javascript:void(0)" class="ftx-05"
+                                           onclick="layerwin('用户协议','/home/login/agreement')">
+                                            《用户注册协议》
+                                        </a>
+                                    </label>
+                                </div>
+                                <div class="input-tip"></div>
+                            </div>
+                            <div class="item item2 item-button">
+                                <input type="hidden" name="flag" id="flag" value='register' />
+                                <input name="register_type" type="hidden" value="1" />
+                                <input type="hidden" name="seccode" id="seccode" value="" />
+                                <input name="act" type="hidden" value="act_register" >
+                                <input name="register_mode" type="hidden" value="1" >
+                                <input id="phone_code_callback" type="hidden" value="0" >
+                                <input id="phone_captcha_verification" type="hidden" value="" />
+                                <input id="phone_verification" type="hidden" value="0" />
+                                <input id="email_verification" type="hidden" value="0" />
+                                <input id="enabled_captcha" type="hidden" value="" />
+                                <input type="button" id="registsubmit" name="Submit" maxlength="8"
+                                       class="btn sc-redBg-btn" value="立即注册"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer user-footer">
+    <div class="shop-copyright">
+        <div class="w w1200">
+            <p class="footer-ecscinfo pb10">
+                <a href="/">首页</a>
+                |
+                <a href="/home/merchant/index.html=2">隐私保护</a>
+                |
+                <a href="/home/merchant/index.html=4">联系我们</a>
+                |
+                <a href="/home/merchant/index.html=1">免责条款</a>
+                |
+                <a href="/home/merchant/index.html=5">公司简介</a>
+                |
+                <a href="/home/merchant/index.html" target="_blank">商家入驻</a>
+            </p>
+            <p class="footer-otherlink">
+                <a href="http://www.taobao.com" target="_blank" title="淘宝">淘宝</a>
+                |
+
+                <a href="http://www.alibaba.com" target="_blank" title="阿里巴巴">阿里巴巴</a>
+            </p>
+            <p class="copyright_info">
+                ICP备案证书号:<a href="http://www.beian.miit.gov.cn" target="_blank">15002903</a>
+                POWERED BY<a href="/" target="_blank">网航商城</a>
+                2.0
+            </p>
+        </div>
+    </div>
+    <div class="hidden">
+        <input type="hidden" name="seller_kf_IM" value="" rev="" ru_id=""/>
+        <input type="hidden" name="seller_kf_qq" value="11647006"/>
+        <input type="hidden" name="seller_kf_tel" value="400-1234-5678"/>
+        <input type="hidden" name="user_id" value="0"/>
+    </div>
+</div>
+
+
+</body>
+</html>
+<style>
+    .layui-timeline-item:before,hr{background-color:#ffffff}
+    .layui-layer-title{padding:0 80px 0 20px;height:42px;line-height:42px;border-bottom:1px solid #eee;font-size:14px;color:#333;overflow:hidden;background-color:#f3f3f3;border-radius:2px 2px 0 0}
+    .layui-layer-btn .layui-layer-btn0 {
+        border-color: #EF4F4F;
+        background-color: #EF4F4F;
+        color: #fff;
+    }
+</style>
+<script src="./lib/ajax.js"></script>
+<script>
+    var ouser = document.querySelector('#username');
+    var opass = document.querySelector('#pwd');
+    var opwdRepeat = document.querySelector('#pwdRepeat');
+    var omobilephone = document.querySelector('#mobile_phone');
+    var obtn = document.querySelector('#registsubmit');
+
+    var clause2 = document.querySelector('#clause2')
+
+    var user=pass=pass2=phone=false;
+    // console.log(user,pass,pwdRepeat,mobilephone)
+    ouser.onblur = function(){
+
+        var userreg = new RegExp("[^a-zA-Z0-9\_\u4e00-\u9fa5]","i");
+        var x = this.value.length;
+        switch (true) {
+            case (x>0 && x<4):
+            this.parentNode.nextElementSibling.innerHTML = "用户名长度不能少于 4 个字符。"
+            user = false
+            break;
+            case (x>15):
+            this.parentNode.nextElementSibling.innerHTML = "用户名最长不得超过15个字符，一个汉字等于2个字符"
+            user = false
+            break;
+            case (x=0):
+            this.parentNode.nextElementSibling.innerHTML = ""
+            user = false
+            break;
+            default:
+            this.parentNode.nextElementSibling.innerHTML = `<label id="username-error" class="succeed" for="username"><i></i></label>`;
+            user = true;
+            if(userreg.test(this.value)){
+                this.parentNode.nextElementSibling.innerHTML = "用户名含有非法字符";
+                user = false
+            }
+                
+            break;
+        }
+    }
+
+    var modes = 0;
+    opass.oninput = function(){var modes = 0;
+        if(this.value.length < 6 && this.value.length>0){//最初级别
+            this.parentNode.nextElementSibling.innerHTML = "登录密码不能少于 6 个字符。"
+            pass = false;
+            return modes;
+        }else{
+            this.parentNode.nextElementSibling.innerHTML = " "
+        }
+
+        if(/\d/.test(this.value)){//如果用户输入的密码 包含了数字
+        modes++;
+        }
+        if(/[a-z]/.test(this.value)){//如果用户输入的密码 包含了小写的a到z
+        modes++;
+        }
+        if(/[A-Z]/.test(this.value)){//如果用户输入的密码 包含了大写的A到Z
+        modes++;
+        }
+        if(/\W/.test(this.value)){//如果是非数字 字母 下划线
+        modes++;
+        }
+
+        switch(modes){
+        case 1 :
+            this.parentNode.nextElementSibling.innerHTML = `<div class='strength strengthA'><b></b><span>弱</span></div>`;
+            break;
+        case 2 :
+            this.parentNode.nextElementSibling.innerHTML = `<div class='strength strengthB'><b></b><span>中</span></div>`;
+            break;
+        case 3 :
+            this.parentNode.nextElementSibling.innerHTML = `<div class='strength strengthB'><b></b><span>中</span></div>`;
+            break;
+        case 4 :
+            this.parentNode.nextElementSibling.innerHTML = `<div class='strength strengthC'><b></b><span>强</span></div>`;
+            break;
+        }
+        pass = true
+    }
+
+    opwdRepeat.onblur = function(){
+        if(opass.value === opwdRepeat.value){
+            this.parentNode.nextElementSibling.innerHTML = `<label id="pwdRepeat-error" class="succeed" for="pwdRepeat"><i></i></label>`;
+            pass2 = true
+        }else{
+            this.parentNode.nextElementSibling.innerHTML = `<label id="pwdRepeat-error" class="error" for="pwdRepeat"><i class="iconfont icon-minus-sign"></i>两次输入密码不一致</label>`;
+            pass2 = false
+        }
+
+        if(this.value === ""){
+                this.parentNode.nextElementSibling.innerHTML = " ";
+            }
+    }
+
+    omobilephone.onblur = function(){
+        if(!(/^1[3456789]\d{9}$/.test(this.value))){ 
+            this.parentNode.nextElementSibling.innerHTML = `<label id="mobile_phone-error" class="error" for="mobile_phone"><i class="iconfont icon-minus-sign"></i>手机号码不是一个有效号码</label>`;
+            phone = false
+        }else{
+            this.parentNode.nextElementSibling.innerHTML = `<label id="mobile_phone-error" class="succeed" for="mobile_phone"><i></i></label>`;
+            
+            phone = true
+        }
+
+
+        if(this.value === ""){
+            this.parentNode.nextElementSibling.innerHTML = " ";
+        }
+    }
+
+    obtn.onclick = function(){
+        if(clause2.checked){
+            if(user && pass && pass2 && phone){
+                ajax({
+                    url:"http://127.0.0.1:3000/api",
+                    data:{
+                        user:ouser.value,
+                        pass:opass.value,
+                        type:"reg"
+                         },
+                         success:res=>{console.log(res)}
+        })
+            }
+        }else{
+            clause2.parentNode.nextElementSibling.innerHTML = "您没有接受协议";
+        }
+    }
+
+</script>

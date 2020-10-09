@@ -1,0 +1,227 @@
+.login {
+    background-color: #fff;
+}
+.loginRegister-header {
+    height: 130px;
+    line-height: 130px;
+}
+.loginRegister-header .logo {
+    height: 130px;
+}
+.logo {
+    float: left;
+}
+.header-href {
+    float: right;
+    font-size: 14px;
+    color: #8c8c8c;
+}
+.loginRegister-header .logoImg {
+    margin: 0;
+    height: 130px;
+}
+.logoImg {
+    float: left;
+    position: relative;
+    margin-right: 30px;
+}
+.loginRegister-header .logoImg a {
+    height: 130px;
+}
+.logoImg a {
+    display: table-cell;
+    height: 100px;
+    vertical-align: middle;
+}
+.logoImg img {
+    max-width: 250px;
+    max-height: 100px;
+}
+.loginRegister-header .logo-span {
+    float: left;
+    font-size: 18px;
+    color: #8c8c8c;
+    margin-left: 12px;
+    margin-top: 35px;
+}
+.header-href {
+    float: right;
+    font-size: 14px;
+    color: #8c8c8c;
+}
+.header-href .jump {
+    color: #f42424;
+}
+.header-href .jump:hover {
+    text-decoration: underline;
+}
+.login .container {
+    padding-bottom: 0;
+}
+.container {
+    background-color: #fff;
+}
+.login-wrap {
+    position: relative;
+    height: 530px;
+    z-index: 5;
+}
+.login-wrap .login-banner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 530px;
+}
+.login-wrap .login-form {
+    float: right;
+    top: 52px;
+}
+.login-form {
+    position: relative;
+    width: 350px;
+    z-index: 4;
+    background-color: #fff;
+}
+.login-box {
+    padding: 20px 40px 30px;
+}
+.login-form .tit {
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+}
+.msg-wrap {
+    height: 25px;
+}
+.login-form .tit h3 {
+    font-size: 16px;
+    color: #8c8c8c;
+    padding: 0 15px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+.login-form .tit span {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 9px;
+    height: 1px;
+    border-bottom: 1px dashed #e5e5e5;
+}
+.msg-wrap .msg-error {
+    color: #f42424;
+}
+.form .item {
+    display: inline-block;
+    display: block;
+    line-height: 25px;
+    width: 100%;
+}
+.form .item {
+    margin-bottom: 10px;
+}
+.form .item-button {
+    margin-top: 20px;
+}
+button, input, select, textarea {
+    font-size: 100%;
+}
+.form .notpwd {
+    margin-top: 5px;
+    display: block;
+}
+.gary {
+    color: #8c8c8c;
+}
+.form .item-info {
+    position: relative;
+    width: 268px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #d2d2d2;
+}
+.form .iconfont {
+    position: absolute;
+    color: #e8e8e8;
+    left: 10px;
+    top: 11px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+}
+.form .text {
+    border: 0;
+    width: 223px;
+    padding: 5px 10px 5px 35px;
+}
+.text {
+    height: 28px;
+    padding: 0 10px;
+    border: 1px solid #d2d2d2;
+    outline: 0;
+    width: 300px;
+}
+
+.form .iconfont {
+    position: absolute;
+    color: #e8e8e8;
+    left: 10px;
+    top: 11px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+}
+.form .item-info {
+    position: relative;
+    width: 268px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #d2d2d2;
+}
+.ui-label {
+    padding-left: 18px;
+    background: url(../images/check/checkbox_12x12.png) 0 2px no-repeat;
+}
+.form .btn {
+    width: 270px;
+    height: 40px;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    outline: 0;
+}
+input.btn {
+    border-radius: 3px;
+}
+.sc-redBg-btn {
+    background: #f42424;
+    border-color: #f42424;
+    color: #fff;
+}
+.btn {
+    padding: 0 10px;
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #f42424;
+    display: inline-block;
+    color: #f42424;
+    background-color: #fff;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.sc-redBg-btn:hover {
+    background: #ec5051;
+    color: #fff;
+}
+.btn:hover {
+    background-color: #f42424;
+    color: #fff;
+}

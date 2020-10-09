@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{width:1000px;border: solid 1px black;margin: 20px auto;overflow: hidden;}
+
+        .box{height: 250px;width:250px;border: solid 1px black;float: left;box-sizing: border-box;text-align: center;}
+        .box img{width:50%;}
+        .box p{
+            margin: 4px 0; 
+            overflow: hidden; /* 文本溢出隐藏*/
+            text-overflow: ellipsis; /* 显示省略号*/
+            white-space: nowrap; /* 设置文本不换行*/
+            }
+        .box .addCart{width:100px;background: #aaf;margin: 0 auto;cursor: pointer;}
+
+        .price{text-decoration: line-through;}
+    </style>
+</head>
+<body>
+    <h3>这是商品列表<a href="cart.html">去结算</a></h3>
+    <div class="cont"></div>
+<script src="lib/ajax.js"></script>
+<script src="lib/cookie.js"></script>
+<script>
+        window.onload = function(){
+            var odiv = document.querySelectorAll('.cont')[0];
+
+            let userMsg = localStorage.getItem("userMsg");
+            userMsg = userMsg ? JSON.parse(userMsg) : {user:"",pass:""};
+            if(userMsg.user === "" || userMsg.pass === ""){
+                alert("请先登录")
+                location.href = "login.html"
+            }
+
+            new Shopping();
+            // ajax({
+            //     url: "http://127.0.0.1:3000/api",
+            //     data:{
+            //       file:"data/goods.json",
+            //       type:"goods"
+            //     },
+            //     success: (res)=>{
+            //         var res = JSON.parse(res)
+            //         let str = "";
+            //         for(let i =0;i<res.data.length;i++){
+            //             str += `<div class="box">
+            //                 <img src="${res.data[i].itempic}"></img>
+            //                 <p>${res.data[i].itemtitle}</p>
+            //                 <p>
+            //                 原价：<span class="price">${res.data[i].itemprice}</span>
+            //                 现价：<span>${res.data[i].itemendprice}</span>
+            //             </p>
+            //             <p class="addCart" data-index="${res.data[i].product_id}">加入购物车</p>
+            //             </div>`
+            //         }
+            //         odiv.innerHTML = str
+            //     }
+            // })
+        }
+
+
+        class Shopping{
+            constructor(){
+                this.cont = document.querySelector(".cont");
+                this.type = false;
+                this.load();
+                this.addEvent();
+            }
+            addEvent(){
+                var that= this;
+                this.cont.addEventListener("click",function(eve){
+                    var e =eve || window.event;
+                    var tar = e.target || e.srcElement;
+                    if(tar.className === "addCart"){
+                        that.id = eve.target.getAttribute("data-index");
+                        that.setdata(tar);
+                    }
+                })
+
+            }
+            load(){
+                ajax({
+                    url: "http://127.0.0.1:3000/api",
+                        data:{
+                        file:"data/goods.json",
+                        type:"goods"
+                        },                    
+                        success:res=>{
+                    this.res = JSON.parse(res)
+                    // console.log(this.res)
+                    this.render();
+                    },
+                })
+            }
+            render(){
+                var str = "";
+                for(var i=0;i<this.res.data.length;i++){
+                    str += `<div class="box">
+                            <img src="${this.res.data[i].itempic}"></img>
+                            <p>${this.res.data[i].itemtitle}</p>
+                            <p>
+                            原价：<span class="price">${this.res.data[i].itemprice}</span>
+                            现价：<span>${this.res.data[i].itemendprice}</span>
+                        </p>
+                        <p class="addCart" data-index="${this.res.data[i].product_id}">加入购物车</p>
+                        </div>`
+                }
+                this.cont.innerHTML = str;
+            }
+            setdata(){
+                // [{},{},{}]
+                this.data = getCookie("goodsMsg") ? JSON.parse(getCookie("goodsMsg")) : [];
+                if(this.data.length<1){
+                    this.data.push({
+                        id:this.id,
+                        num:1
+                    })
+                }else{
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].id === this.id){
+                            this.data[i].num++
+                            this.type = true;
+                        }
+                    }
+                    if(!this.type){
+                        this.data.push({
+                        id:this.id,
+                        num:1
+                        })
+                        this.type = false;
+                    }
+            
+            }
+                setCookie("goodsMsg",JSON.stringify(this.data));
+            }
+            insertajax(i){
+                ajax({
+                    url: "http://127.0.0.1:3000/api",
+                        data:{
+                        file:"data/goods.json",
+                        type:"goods"
+                        },
+                    data:{
+                        itempic:this.res.data[i].itempic,
+                        itemprice:this.res.data[i].itemprice,
+                        itemendprice:this.res.data[i].itemendprice,
+                        itemtitle:this.res.data[i].itemtitle,
+                        product_id:this.res.data[i].product_id
+                    },
+                    success:ress=>{console.log(JSON.parse(ress))}
+                })
+            }
+        }
+        
+</script>
+</body>
+</html>

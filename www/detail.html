@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box{width:1000px;overflow: hidden;border: solid 1px black;margin: 0 auto;}
+        .magnifier{float: left;width: 500px;}
+        .magnifier img{width: 80%;height:80%;}
+
+        .cont{float: right;width: 500px;}
+        .cont .color{display: flex;}
+        .color .list{display: flex;}
+        .list dl{padding: 0;margin: 0 10px;} 
+        .list dd{padding: 0;margin: 0;} 
+        .list dt{width:40px;height:40px;border: solid 2px #333;} 
+    </style>
+</head>
+<body>
+    <h1>这是商品详情</h1><a href="list.html">继续选购</a>
+    <div class="box">
+        
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // console.log(location.search.split("=")[1]);
+        var obox = document.querySelector('.box');
+            $.ajax({
+                url:"http://127.0.0.1:3000/api",
+                data:{
+                    type:"detail",
+                },
+                success:res=>{
+                    var str = "";
+                    for(var i=0;i<res.data.length;i++){
+                        if(res.data[i].product_id === location.search.split("=")[1]){
+                            str = `<div class="magnifier">
+                                <!-- <div class="s_box"></div>
+                                <div class="b_box"></div> -->
+                                <img src="${res.data[i].itempic}" alt="">
+                            </div>
+                            <div class="cont">
+                                <h3>${res.data[i].itemshorttitle}</h3>
+                                <h4>${res.data[i].itemdesc}</h4>
+                                <p>${res.data[i].itemprice}</p>
+                                <p>${res.data[i].is_brand}</p>
+                                <div class="color">
+                                    可选颜色：
+                                    <div class="list">
+                                        红色
+                                    </div>
+                                </div>
+                            </div>`
+
+                        }
+                    }
+                    obox.innerHTML = str;
+                },
+                dataType:"json"
+        })
+        function createColor(data){
+        // console.log(data)
+        let str = "";
+        data.forEach(element => {
+            str += `<dl>
+                        <dt style="background: ${element.c};"></dt>
+                        <dd>${element.t}</dd>
+                    </dl>`
+        });
+        return str;
+    }
+    </script>
+</body>
+</html>
