@@ -164,7 +164,7 @@
     var user=pass=pass2=phone=false;
     // console.log(user,pass,pwdRepeat,mobilephone)
     ouser.onblur = function(){
-
+        var that = this;
         var userreg = new RegExp("[^a-zA-Z0-9\_\u4e00-\u9fa5]","i");
         var x = this.value.length;
         switch (true) {
@@ -181,12 +181,30 @@
             user = false
             break;
             default:
-            this.parentNode.nextElementSibling.innerHTML = `<label id="username-error" class="succeed" for="username"><i></i></label>`;
-            user = true;
+            // this.parentNode.nextElementSibling.innerHTML = `<label id="username-error" class="succeed" for="username"><i></i></label>`;
+            // user = true;
             if(userreg.test(this.value)){
                 this.parentNode.nextElementSibling.innerHTML = "用户名含有非法字符";
                 user = false
+                return;
             }
+            ajax({
+                url:"http://127.0.0.1:3000/api",
+                data:{
+                    user:ouser.value,
+                    type:"checkuser"
+                },
+                success:function(res){
+                    // console.log(res)
+                    if(res == "true"){
+                        that.parentNode.nextElementSibling.innerHTML = `<label id="username-error" class="succeed" for="username"><i></i></label>`;
+                        user = true;
+                    }else{
+                        that.parentNode.nextElementSibling.innerHTML = `<label id="username-error" class="error" for="username"><i class="iconfont icon-minus-sign"></i>用户名已经存在,请重新输入</label>`;
+                        user = false;  //修改user为false，不再请求obtn的ajax
+                    }
+                }
+            })
                 
             break;
         }
@@ -275,23 +293,23 @@
     //     })
     // }
 
-    ouser.addEventListener('blur',function(){
-            ajax({
-                url:"http://127.0.0.1:3000/api",
-                data:{
-                    user:ouser.value,
-                    type:"checkuser"
-                },
-                success:function(res){
-                    console.log(res)
-                    // if(res == "true"){
-                    //     user = true;
-                    // }else{
-                    //     user = false;  //修改user为false，不再请求obtn的ajax
-                    // }
-                }
-            })
-    })
+    // ouser.addEventListener('blur',function(){
+    //         ajax({
+    //             url:"http://127.0.0.1:3000/api",
+    //             data:{
+    //                 user:ouser.value,
+    //                 type:"checkuser"
+    //             },
+    //             success:function(res){
+    //                 console.log(res)
+    //                 // if(res == "true"){
+    //                 //     user = true;
+    //                 // }else{
+    //                 //     user = false;  //修改user为false，不再请求obtn的ajax
+    //                 // }
+    //             }
+    //         })
+    // })
 
     obtn.onclick = function(){
         if(clause2.checked){
