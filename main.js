@@ -94,7 +94,8 @@ function login(data,req,res){
         }else{
             arr.push({
                 user:data.user,
-                pass:data.pass
+                pass:data.pass,
+                phone:data.phone
             })
             msg = {code:1,msg:"注册成功"}
         }
@@ -106,7 +107,8 @@ function login(data,req,res){
         }else{
         arr.push({
             user:data.user,
-            pass:data.pass
+            pass:data.pass,
+            phone:data.phone
         })
         msg = {code:1,msg:"注册成功"}
     }

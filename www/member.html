@@ -15,7 +15,7 @@
 </head>
 <body>
     <script src="./js/jquery.min.js"></script>
-    <script src="lib/menu.js"></script>
+    <!-- <script src="lib/menu.js"></script> -->
     <script>
 $(document).ready(function(){
         $(function()
@@ -36,8 +36,12 @@ $(document).ready(function(){
                     sessionStorage.clear();
                   }
                 }
+
+                $('.name').html(`<h2>${loginStatus.user}</h2><h6>${loginStatus.phone}</h6>`)
             });
-                $('.headerBox').load('./module/public.html .header');
+                $('.headerBox').load('./module/public.html .header',function(){
+                    $('.search-text')[0].style.height = "34px"
+                });
      
                 // $('.categorys').load('./module/public.html .nav',function(){
                 //   // $.getScript("./module/lib/menu.js");
@@ -45,7 +49,7 @@ $(document).ready(function(){
                 //       });
 
                 $('.navBox').load('./module/nav.html .nav',function(){
-                  new menu();
+                //   new menu();
                 });
 
                 $('.footerBox').load('./module/public.html .footer-new')
@@ -60,11 +64,11 @@ $(document).ready(function(){
         <div class="user-mod user-perinfo">
             <div class="profile clearfix">
                 <div class="avatar">
-                                    <img src="/public/static/theme/images/touxiang.jpg" alt="">
+                                    <img src="http://www.hngpmall.com/public/static/theme/images/touxiang.jpg" alt="">
                                 </div>
                 <div class="name">
-                    <h2>ppnows</h2>
-                    <h6>17795315634</h6>
+                    <!-- <h2>ppnows</h2>
+                    <h6>17795315634</h6> -->
                     <div class="user-rank user-rank-1 hide">铜牌</div>
                 </div>
             </div>
